@@ -1,18 +1,4 @@
-function pingPong (goal){
-  var output =[];
-  for (var i = 1; i <= goal; i++) {
-    if (i % 15 == 0) {
-     output.push("ping-pong");
-   } else if (i % 3 === 0) {
-     output.push("ping");
-   } else if (i % 5 === 0) {
-     output.push("pong");
-   } else  {
-     output.push(i);
-   }
-  }
-  return output;
-}
+var pingPong = require('./ping-pong.js').pingPong;
 
 $(document).ready(function(){
   $('#ping-pong').submit(function(event){
@@ -20,7 +6,7 @@ $(document).ready(function(){
     var goal=$('#goal').val();
     var output=pingPong(goal);
     output.forEach(function(element){
-      $('#soultion').append("<li>"+element+"</li>")
+      $('#solution').append("<li>"+element+"</li>")
     });
   });
 });
