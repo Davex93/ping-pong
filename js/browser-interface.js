@@ -1,4 +1,4 @@
-var pingPong = require('./ping-pong.js').pingPong;
+var pingPong = require('./../js/ping-pong.js').pingPong;
 
 $(document).ready(function(){
   $('#ping-pong').submit(function(event){
@@ -6,7 +6,7 @@ $(document).ready(function(){
     var goal=$('#goal').val();
     var output=pingPong(goal);
     output.forEach(function(element){
-      $('#solution').append("<li>"+element+"</li>")
+      $('#solution').append("<li>"+element+"</li>");
     });
   });
 });
