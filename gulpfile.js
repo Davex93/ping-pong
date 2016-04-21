@@ -7,6 +7,7 @@ var utilities = require('gulp-util');
 var buildProduction = utilities.env.production;
 var del = require('del');
 var jshint = require('gulp-jshint');
+var lib = require ('bower-files')();
 
 gulp.task('jshint',function(){
   return gulp.src(['js/*.js'])
@@ -41,8 +42,13 @@ gulp.task("build", ['clean'], function(){
   }
 });
 
-
-
 gulp.task("clean", function(){
   return del(['./build', './tmp']);
+});
+
+gulp.task('bowerJS',function(){
+  return gulp.src(lib.ext('js').files)
+  .pipe(concat('vendor.min.js'))
+  .pipe(uglify())
+  .pipe(gulp.dest('./build/js'));
 });

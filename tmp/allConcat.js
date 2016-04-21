@@ -6,7 +6,7 @@ $(document).ready(function(){
     var goal=$('#goal').val();
     var output=pingPong(goal);
     output.forEach(function(element){
-      $('#solution').append("<li>"+element+"</li>")
+      $('#solution').append("<li>"+element+"</li>");
     });
   });
 });
@@ -18,4 +18,8 @@ $(document).ready(function(){
     $('#signup').hide();
     $('#solution').prepend('<p>Thank you '+email+' has been added to our list!</p>');
   });
+});
+
+$(document).ready(function(){
+  $('#time').text(moment());
 });

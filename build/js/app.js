@@ -2,7 +2,7 @@
 exports.pingPong = function(goal){
   var output =[];
   for (var i = 1; i <= goal; i++) {
-    if (i % 15 == 0) {
+    if (i % 15 === 0) {
      output.push("ping-pong");
    } else if (i % 3 === 0) {
      output.push("ping");
@@ -13,7 +13,7 @@ exports.pingPong = function(goal){
    }
   }
   return output;
-}
+};
 
 },{}],2:[function(require,module,exports){
 var pingPong = require('./../js/ping-pong.js').pingPong;
@@ -24,7 +24,7 @@ $(document).ready(function(){
     var goal=$('#goal').val();
     var output=pingPong(goal);
     output.forEach(function(element){
-      $('#solution').append("<li>"+element+"</li>")
+      $('#solution').append("<li>"+element+"</li>");
     });
   });
 });
@@ -36,6 +36,10 @@ $(document).ready(function(){
     $('#signup').hide();
     $('#solution').prepend('<p>Thank you '+email+' has been added to our list!</p>');
   });
+});
+
+$(document).ready(function(){
+  $('#time').text(moment());
 });
 
 },{"./../js/ping-pong.js":1}]},{},[2]);
